@@ -47,6 +47,7 @@ function M.open()
 end
 
 function M.tab_change()
+  if not vim.g.nvim_tree_tab_open then return end
   vim.schedule(function()
     if not view.win_open() and view.win_open({ any_tabpage = true }) then
       local bufname = vim.api.nvim_buf_get_name(0)

@@ -28,9 +28,7 @@ function! s:nvimTreeStart()
     endif
     au ColorScheme * lua require'nvim-tree'.reset_highlight()
     au User FugitiveChanged,NeogitStatusRefreshed lua require'nvim-tree'.refresh()
-    if get(g:, 'nvim_tree_tab_open') == 1
-      au TabEnter * lua require'nvim-tree'.tab_change()
-    endif
+    au TabEnter * lua require'nvim-tree'.tab_change()
     au SessionLoadPost * lua require'nvim-tree.view'._wipe_rogue_buffer()
     if get(g:, 'nvim_tree_hijack_cursor', 1) == 1
       au CursorMoved NvimTree lua require'nvim-tree'.place_cursor_on_node()
